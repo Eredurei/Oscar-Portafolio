@@ -1,0 +1,40 @@
+.animate-fade {
+    opacity: 0;
+    &.top {
+        transform: translateY(100px);
+        &.fade-in {
+            transform: translateY(0);
+        }
+    }
+    &.bottom {
+        transform: translateY(-100px);
+        &.fade-in {
+            transform: translateY(0);
+        }
+    }
+    &.left {
+        transform: translateX(-100px);
+        &.fade-in {
+            transform: translateX(0);
+        }
+    }
+    &.right {
+        transform: translateX(100px);
+        &.fade-in {
+            transform: translateX(0);
+        }
+    }
+    &.fade-in {
+        opacity: 1;
+        transition: all 1.4s cubic-bezier(0.18, 0.32, 0.17, 0.99);
+    }
+    @media only screen and (max-width : 600px){
+        &.right {
+            transform: translateY(100px);
+            &.fade-in {
+                transform: translateY(0);
+            }
+        }
+    }
+   }
+   
