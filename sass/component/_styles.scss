@@ -105,6 +105,7 @@ header {
         &--text {
             height: fit-content;
             width: 30%;
+            padding: 0 30px;
         }
         &--image {
             height: 100%;
@@ -215,7 +216,7 @@ header {
     }
 }
 .third-block {
-    margin-bottom: 40px;
+    margin-bottom: 80px;
     &__text {
         margin-bottom: 40px;
     }
@@ -283,10 +284,22 @@ header {
         figure {
             width: 100%;
             height: 840px;
+            position: relative;
+            &::before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background: linear-gradient(0deg, rgba(13,13,13,1) 0%, rgba(13,13,13,0.8029586834733894) 33%, rgba(13,13,13,0) 100%);
+                z-index: 9;
+            }
             img {
                 width: 100%;
                 height: 100%;
-                object-fit: contain;
+                object-fit: cover;
+                object-position: top;
             }
         }
         .image-description {
@@ -333,6 +346,14 @@ header {
         width: fit-content;
         height: fit-content;
         padding: 10px;
+        cursor: pointer;
+        transition: all ease-in-out .5s;
+        &:hover {
+            background-color: $white;
+            color: $primary_color;
+            font-weight: 500;
+            transition: all ease-in-out .5s;
+        }
     }
     &__biograph {
         position: fixed;
@@ -348,8 +369,19 @@ header {
         .container {
             background-color: $white;
             padding: 80px;
+            font-family: $text-font;
+            text-align: center;
+            line-height: 1.5;
             h2 {
                 color: $primary_color;
+            }
+            h3 {
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+            .close {
+                text-align: right;
+                cursor: pointer;
             }
         }
         &.active {
