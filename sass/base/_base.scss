@@ -7,6 +7,18 @@ $white: #F2F2F0;
 $title-font: "Montserrat", sans-serif;
 $text-font: "Lato", sans-serif;
 
+// @
+// Media Queries
+@mixin tablet {
+    @media screen and (max-width: 900px) {
+        @content;
+    }
+}
+@mixin mobile{
+    @media screen and (max-width: 520px) {
+        @content;
+    }
+} 
 
 * {
     box-sizing: border-box;
@@ -30,9 +42,18 @@ body {
         font-size: 40px;
         text-align: center;
         margin-bottom: 30px;
+        @include mobile {
+            font-size: 30px;
+        }
     }
     .container {
         max-width: 900px;
         margin: 0 auto;
+    }
+    .lb-data .lb-caption {
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1em;
+        font-family: $title-font;
     }
 }

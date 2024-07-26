@@ -69,6 +69,28 @@ header {
             margin-bottom: 50px;
         }
     }
+    @include mobile {
+        &__title {
+            width: 85%;
+            top: 120px;
+            h1 {
+                font-size: 50px;
+            }
+        }
+        &__image {
+            height: 70vh;
+            figure {
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+        &__description {
+            padding: 0 40px;
+        }
+    }
+    
 }
 .intro {
     margin-bottom: 80px;
@@ -78,14 +100,28 @@ header {
     &__image {
         width: 100%;
         height: 600px;
-        figure {
+        position: relative;
+        a {
             width: 100%;
             height: 100%;
-            img {
+            display: block;
+            figure {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
             }
+        }
+    }
+    @include mobile {
+        .container {
+            padding: 0 40px;
+        }
+        &__image {
+            height: 400px;
         }
     }
 }
@@ -111,46 +147,52 @@ header {
             height: 100%;
             width: 30%;
             position: relative;
-            figure {
+            a {
+                display: block;
                 width: 100%;
                 height: 100%;
-                img {
+                position: relative;
+                &::before {
+                    content: "";
                     width: 100%;
                     height: 100%;
-                    object-fit: cover;
-                }
-            }
-            .image-description {
-                position: absolute;
-                opacity: 0;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                padding: 30px;
-                background-color: rgba($color: $primary_color, $alpha: 0.8);
-                transition: all ease-in-out .5s;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                p {
-                    color: $white;
-                    strong {
-                        display: block;
-                    }
-                    span {
-                        display: block;
-                        font-style: italic;
-                        font-size: 80%;
-                        margin-top: 30px;
-                    }
-                }
-            }
-            &.active {
-                .image-description {
-                    opacity: 1;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    opacity: 0;
+                    pointer-events: none;
+                    z-index: 9;
+                    background-color: rgba($color: $primary_color, $alpha: 0.8);
                     transition: all ease-in-out .5s;
                 }
+                &:hover {
+                    &::before {
+                        opacity: 1;
+                        transition: all ease-in-out .5s;
+                    }
+                }
+                figure {
+                    width: 100%;
+                    height: 100%;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+    @include mobile {
+        .container {
+            padding: 0 40px;
+        }
+        &__images {
+            display: block;
+            height: fit-content;
+            &--image, &--text {
+                width: 100%;
+                margin-bottom: 40px;
             }
         }
     }
@@ -171,46 +213,51 @@ header {
             width: 30%;
             height: auto;
             position: relative;
-            figure {
+            a {
+                display: block;
                 width: 100%;
                 height: 100%;
-                img {
+                position: relative;
+                &::before {
+                    content: "";
                     width: 100%;
                     height: 100%;
-                    object-fit: contain;
-                }
-            }
-            .image-description {
-                position: absolute;
-                opacity: 0;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                background-color: rgba($color: $primary_color, $alpha: 0.8);
-                transition: all ease-in-out .5s;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 30px;
-                p {
-                    color: $white;
-                    strong {
-                        display: block;
-                    }
-                    span {
-                        display: block;
-                        font-style: italic;
-                        font-size: 80%;
-                        margin-top: 30px;
-                    }
-                }
-            }
-            &.active {
-                .image-description {
-                    opacity: 1;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    opacity: 0;
+                    pointer-events: none;
+                    z-index: 9;
+                    background-color: rgba($color: $primary_color, $alpha: 0.8);
                     transition: all ease-in-out .5s;
                 }
+                &:hover {
+                    &::before {
+                        opacity: 1;
+                        transition: all ease-in-out .5s;
+                    }
+                }
+                figure {
+                    width: 100%;
+                    height: 100%;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+    }
+    @include mobile {
+        &__text {
+            padding: 0 40px;
+        }
+        &__images {
+            display: block;
+            &--image {
+                width: 100%;
+                margin-bottom: 20px;
             }
         }
     }
@@ -229,47 +276,54 @@ header {
             width: 20%;
             height: auto;
             position: relative;
-            figure {
+            a {
+                display: block;
                 width: 100%;
                 height: 100%;
-                img {
+                position: relative;
+                &::before {
+                    content: "";
                     width: 100%;
                     height: 100%;
-                    object-fit: contain;
-                }
-            }
-            .image-description {
-                position: absolute;
-                opacity: 0;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                background-color: rgba($color: $primary_color, $alpha: 0.8);
-                transition: all ease-in-out .5s;
-                transition: all ease-in-out .5s;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 30px;
-                p {
-                    color: $white;
-                    strong {
-                        display: block;
-                    }
-                    span {
-                        display: block;
-                        font-style: italic;
-                        font-size: 80%;
-                        margin-top: 30px;
-                    }
-                }
-            }
-            &.active {
-                .image-description {
-                    opacity: 1;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    opacity: 0;
+                    pointer-events: none;
+                    z-index: 9;
+                    background-color: rgba($color: $primary_color, $alpha: 0.8);
                     transition: all ease-in-out .5s;
                 }
+                &:hover {
+                    &::before {
+                        opacity: 1;
+                        transition: all ease-in-out .5s;
+                    }
+                }
+                figure {
+                    width: 100%;
+                    height: 100%;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+    }
+    @include mobile {
+        &__text {
+            padding: 0 40px;
+        }
+        &__images {
+            display: block;
+            &--image {
+                width: 100%;
+                margin-bottom: 20px;
             }
         }
     }
@@ -393,6 +447,11 @@ header {
             transform: scale(1);
             overflow-x: scroll;
             transition: all ease-in-out .5s;
+        }
+    }
+    @include mobile {
+        .container {
+            padding: 40px;
         }
     }
 }
