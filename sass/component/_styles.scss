@@ -446,8 +446,16 @@ header {
             background-color: $white;
             padding: 80px;
             font-family: $text-font;
-            text-align: center;
+            text-align: justify;
             line-height: 1.5;
+            figure {
+                width: 100%;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
             h2 {
                 color: $primary_color;
             }
