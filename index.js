@@ -1,5 +1,3 @@
-console.log("No me sirve esta putamierda");
-
 document.addEventListener('DOMContentLoaded', function () {
     let observerCallback = (entries, observer) => {
         entries.forEach(entry => {
